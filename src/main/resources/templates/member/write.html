@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <header th:insert="common/header"></header>
+</head>
+
+<body>
+<form action="/write" method="post">
+    <div class="form-group">
+        <label for="name">Name:</label> <input type="text" name="name:" class="form-control" placeholder="Enter title" id="name">
+    </div>
+
+    <div class="form-group">
+        <label for="age">Age:</label>
+        <textarea class="form-control summernote" rows="5" id= "age"></textarea>
+    </div>
+    <input type="submit" role="button" value="등록">
+</form>
+</body>
+<header th:insert="common/footer"></header>
+</html>

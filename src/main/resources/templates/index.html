@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ka" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <header th:insert="common/header"></header>
+</head>
+<div class="container">
+
+    <div th:each="member : ${memberList}">
+        <div class="card m-2">
+            <div class="card-body">
+                <div>
+                    <a th:href="@{'/view/' + ${member.id}}">
+                        이름 : <span th:text="${member.name}"></span>
+                    </a>
+                </div>
+                <div>
+                    나이 : <span th:text="${member.age}"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<a class="btn btn-primary" th:href="@{/write}" role="button">글쓰기</a>
+<header th:insert="common/footer"></header>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ka" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head><table>
+    <tr>
+        <th>#</th>
+        <th>이름</th>
+        <th>나이</th>
+    </tr>
+    <tr th:each="member : ${memberList}">
+        <td>
+            <span th:text="${member.id}">
+            </span>
+        </td>
+        <td>
+            <a th:href="@{'/view/' + ${member.id}}">
+                <span th:text="${member.name}"></span>
+            </a>
+        </td>
+        <td>
+        <span th:text="${member.age}">
+            </span>
+        </td>
+    </tr>
+</table>
+<a class="btn btn-primary" th:href="@{/write}" role="button">글쓰기</a>
+<body>
+
+
+</body>
+</html>
