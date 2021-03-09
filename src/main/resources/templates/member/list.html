@@ -6,8 +6,8 @@
 </head><table>
     <tr>
         <th>#</th>
-        <th>이름</th>
-        <th>나이</th>
+        <th>제목</th>
+        <th>내용</th>
     </tr>
     <tr th:each="member : ${memberList}">
         <td>
@@ -16,11 +16,11 @@
         </td>
         <td>
             <a th:href="@{'/view/' + ${member.id}}">
-                <span th:text="${member.name}"></span>
+                <span th:text="${member.title}"></span>
             </a>
         </td>
         <td>
-        <span th:text="${member.age}">
+        <span th:text="${member.content}">
             </span>
         </td>
     </tr>

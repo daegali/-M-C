@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <header th:insert="common/header"></header>
 </head>
-<body>
-<table>
-    <tr>
-        <th>이름</th>
-        <th>나이</th>
-    </tr>
-    <tr th:each="view : ${viewList}">
-        <td th:text="${view.name}"></td>
-        <td th:text="${view.age}"></td>
-    </tr>
-</table>
-<div class="row mt-3">
+<body><br/><br/><br/>
+<div th:each="view : ${viewList}">
+
+    <div>
+       제목 :  <div th:text="${view.title}"></div>
+        <hr>
+       내용 :  <div th:text="${view.content}"></div>
+    </div>
+</div>
+<div class="row mt-3 justify-content-center">
     <div class="col-auto mr-auto"></div>
     <div class="col-auto">
         <a class="btn btn-info" th:href="@{'/list/update/' + ${viewList.id}}" role="button">수정</a>
@@ -26,5 +25,9 @@
             <button id="delete-btn" type="submit" class="btn btn-danger">삭제</button>
         </form>
     </div>
-</div></body>
+</div>
+</body>
+<br/><br/><br/>
+<header th:insert="common/footer"></header>
+
 </html>

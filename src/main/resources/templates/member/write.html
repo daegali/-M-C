@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <header th:insert="common/header"></header>
+    <br/><br/><br/>
 </head>
 
 <body>
 <form action="/write" method="post">
     <div class="form-group">
-        <label for="name">Name:</label> <input type="text" name="name:" class="form-control" placeholder="Enter title" id="name">
+        <label for="title">Title:</label> <input type="text" name="title" class="form-control" placeholder="Enter title"
+                                                 id="title">
     </div>
 
     <div class="form-group">
-        <label for="age">Age:</label>
-        <textarea class="form-control summernote" rows="5" id= "age"></textarea>
+        <label for="content">Content:</label>
+        <textarea class="form-control" rows="5" name="content" id="content"></textarea>
     </div>
     <input type="submit" role="button" value="등록">
 </form>
 </body>
+<br/><br/><br/>
 <header th:insert="common/footer"></header>
 </html>

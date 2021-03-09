@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+<form th:action="@{/user/join}" method="post">
+    <input type="text" name="username"  placeholder="아이디를 입력해주세요">
+    <input type="password" name="password" placeholder="비밀번호">
+    <input type="text" name="email" placeholder="이메일 입력해주세요">
+    <button type="submit">가입하기</button>
+</form>
 </body>
 </html>

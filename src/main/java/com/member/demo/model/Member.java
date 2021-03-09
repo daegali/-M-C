@@ -13,25 +13,21 @@ import javax.persistence.*;
 @SuppressWarnings("ALL")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Entity
-@ToString
 public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false, length = 20)
-    private String name;
+    @Column(length = 100)
+    private String title;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "userId")
-    private User2 user2;
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "userId")
+//    private User2 user2;
 
-    @Column(nullable = false, length = 3)
-    private int age;
-
+    @Column(length = 1000)
+    private String content;
 
 }
