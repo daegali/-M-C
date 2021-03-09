@@ -3,24 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <header th:insert="common/header"></header>
+    <br/><br/><br/>
 </head>
+
 <body>
 <form th:action="@{'/list/update/' + ${viewList.id}}" method="post">
     <input type="hidden" name="_method" th:value="put"/>
     <input type="hidden" name="id" th:value="${viewList.id}"/>
-    <table>
-        <tr>
-            <td>
-                이름: <input type="text" name="title" id="title" th:value="${viewList.title}"><br>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                나이: <input type="text" name="content" id="content" th:value="${viewList.content}">
-            </td>
-        </tr>
-    </table>
-    <input type="submit" value="수정 완료">
+    <div class="form-group">
+        <label for="title">Title:</label> <input type="text" name="title" class="form-control" placeholder="Enter title"
+                                                 id="title">
+    </div>
+
+    <div class="form-group">
+        <label for="content">Content:</label>
+        <textarea class="form-control" rows="5" name="content" id="content"></textarea>
+    </div>
+    <input type="submit" role="button" value="수정">
 </form>
+</body>
+<br/><br/><br/>
+<header th:insert="common/footer"></header>
+</html>
 </body>
 </html>

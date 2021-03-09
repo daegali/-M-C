@@ -5,6 +5,8 @@ import com.member.demo.model.Member;
 import com.member.demo.repository.MemberRepository;
 //import com.member.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,10 +32,10 @@ public class MemberService {
 
     // 글 목록
     @Transactional
-    public List<Member> writeList() {
+    public Page<Member> selectList(Pageable pageable) {
         // selectList
         // selectOne
-        return memberRepository.findAll();
+        return memberRepository.findAll(pageable);
     }
 
     // 글 쓰기
@@ -46,7 +48,7 @@ public class MemberService {
 
     // 상세보기
     @Transactional(readOnly = true)
-    public Member view(int id) {
+    public Member selectOne(int id) {
         // selectOne
 //        return memberRepository.findById(id);
         Member returnValue = memberRepository.findById(id)

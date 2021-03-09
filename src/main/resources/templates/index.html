@@ -21,7 +21,21 @@
 
 </div>
 
-<a class="btn btn-primary" th:href="@{/write}" role="button">글쓰기</a>
+<div class="justify-content-center" style="text-align: center">
+    <span th:if="${memberList.hasPrevious()}">
+        <a th:href="@{/(memberList=${memberList.number -1},size=${memberList.size})}">Previous</a>
+    </span>
+    <th:block th:each="i: ${#numbers.sequence(0, memberList.totalPages -1)}">
+        <span th:if="${memberList.number == i}" class="selected">[[${i}+1]]</span>
+        <span th:unless="${memberList.number == i}">
+             <a th:href="@{/employees(page=${i},size=${memberList.size})}">[[${i}+1]]</a>
+        </span>
+    </th:block>
+    <span th:if="${memberList.hasNext()}">
+        <a th:href="@{/(memberList=${memberList.number+1},size=${memberList.size})}">Next</a>
+    </span>
+</div>
+<a class="btn btn-primary" th:href="@{/write}" role="button" style="text-align: center">글쓰기</a>
 <header th:insert="common/footer"></header>
 
 </html>
