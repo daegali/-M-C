@@ -3,6 +3,7 @@ package com.member.demo.controller;
 import com.member.demo.model.Member;
 import com.member.demo.repository.MemberRepository;
 import com.member.demo.service.MemberService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -26,9 +28,13 @@ public class MemberController {
 
     // 글 목록
     @GetMapping("/")
-    public String list(Model model,@PageableDefault(size=3,sort="id",direction = Sort.Direction.DESC) Pageable pageable) {
-        model.addAttribute("memberList", memberService.selectList(pageable));
-//        model.addAttribute("pageList",pageList);
+    public String list(Model model, Member member) {
+
+//        Page<Member> members = memberService.selectList(page);
+        List<Member> members = memberService.selectList(member);
+//        model.addAttribute("pages",member);
+//        model.addAttribute("maxPage",3);
+        model.addAttribute("memberList",members);
         return "/index";
     }
 

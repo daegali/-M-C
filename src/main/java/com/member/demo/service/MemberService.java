@@ -6,6 +6,7 @@ import com.member.demo.repository.MemberRepository;
 //import com.member.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,10 +33,11 @@ public class MemberService {
 
     // 글 목록
     @Transactional
-    public Page<Member> selectList(Pageable pageable) {
+    public List<Member> selectList(Member member) {
         // selectList
         // selectOne
-        return memberRepository.findAll(pageable);
+//        Pageable pageable = PageRequest.of(startAt, 3);
+        return memberRepository.findAll();
     }
 
     // 글 쓰기
@@ -73,6 +75,7 @@ public class MemberService {
     public void deletePost(int id) {
         memberRepository.deleteById(id);
     }
+
 
 //    // 로그인
 //    public User2 loginPost(User2 user) {

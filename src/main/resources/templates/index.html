@@ -21,19 +21,37 @@
 
 </div>
 
-<div class="justify-content-center" style="text-align: center">
-    <span th:if="${memberList.hasPrevious()}">
-        <a th:href="@{/(memberList=${memberList.number -1},size=${memberList.size})}">Previous</a>
-    </span>
-    <th:block th:each="i: ${#numbers.sequence(0, memberList.totalPages -1)}">
-        <span th:if="${memberList.number == i}" class="selected">[[${i}+1]]</span>
-        <span th:unless="${memberList.number == i}">
-             <a th:href="@{/employees(page=${i},size=${memberList.size})}">[[${i}+1]]</a>
-        </span>
-    </th:block>
-    <span th:if="${memberList.hasNext()}">
-        <a th:href="@{/(memberList=${memberList.number+1},size=${memberList.size})}">Next</a>
-    </span>
+<!--<div class="page-num">-->
+<!--    &lt;!&ndash;     th:with="start=${(pages.number/maxPage)*maxPage + 1},&ndash;&gt;-->
+<!--    &lt;!&ndash;                  end=(${(pages.totalPages == 0) ? 1 : (start + (maxPage - 1) < pages.totalPages ? start + (maxPage - 1) : pages.totalPages)})" >&ndash;&gt;-->
+<!--    <div style="text-align: center">-->
+<!--        <p th:if="${pages.number < pages.totalPages}">-->
+<!--            <a th:href="@{/?(page=${pages.number+1})}" th:text="[Next]"></a> &nbsp; &nbsp; &nbsp;-->
+<!--            <a th:href="@{/?(page=${pages.number-1})}" th:text="[Previous]"></a>-->
+<!--        </p>-->
+<!--        <p th:unless="${pages.number < pages.totalPages}">-->
+<!--            <a th:href="@{/?(page=${pages.number-1})}"  th:text="[Previous]"></a>-->
+<!--        </p>-->
+<!--    </div>-->
+
+    <!--        <p th:if="${end < pages.totalPages}">-->
+    <!--            <a th:href="@{/?(page=${pages.number-1})}" th:text="'Previous'"></a>-->
+    <!--        </p>-->
+
+
+    <!--        <li th:if="${start > 1}">-->
+    <!--            <a th:href="@{/?(page=${start - maxPage})}" th:text="'Previous'"></a>-->
+    <!--        </li>-->
+
+    <!--        <li th:each="page: ${#numbers.sequence(start, end)}">-->
+    <!--            <a th:href="@{/?(page=${page-1})}" th:text="${page}"></a></li>-->
+    <!--        </li>-->
+
+    <!--        <li th:if="${end < pages.totalPages}">-->
+    <!--            <a th:href="@{/?(page=${start + maxPage})}" th:text="'Next'"></a>-->
+    <!--        </li>-->
+
+
 </div>
 <a class="btn btn-primary" th:href="@{/write}" role="button" style="text-align: center">글쓰기</a>
 <header th:insert="common/footer"></header>
